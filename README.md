@@ -12,3 +12,15 @@ After running these commands the first line in the python notebook should be run
 ```bash
 pip install tensorflow opencv-python matplotlib
 ```
+The models trained on my machine have been uploaded, and can be tested by running the following lines:
+```Python
+img = cv2.imread('INSERT_EXAMPLE.jpg')
+resize = tf.image.resize(img, (256,256))
+yhat_new = new_model.predict(np.expand_dims(resize/255, 0))
+if yhat_new > 0.5: 
+    print(f'Predicted class is Sad')
+else:
+    print(f'Predicted class is Happy')
+```
+
+The model is fairly accurate, the dataset was sourced from google images.
